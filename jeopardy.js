@@ -8,7 +8,7 @@ class Game {
 
     async getRandomCategoryIDs() { // this function gets random verified IDs that exist in API
         let categoryIDs = [];
-        let results = await axios.get(`http://jservice.io/api/random?count=${this.numOfCategories}`);
+        let results = await axios.get(`https://jservice.io/api/random?count=${this.numOfCategories}`);
         let randomClues = results.data;
         for (let clue of randomClues) {
             categoryIDs.push(clue.category.id);
@@ -17,7 +17,7 @@ class Game {
     }
 
     async makeCategoryObj(catID) { // this function accepts the ID of a category and returns an object with its 5 of its questions and answers
-        let results = await axios.get(`http://jservice.io/api/category?id=${catID}`)
+        let results = await axios.get(`https://jservice.io/api/category?id=${catID}`)
         let category = results.data;
         let clueArr = [];
         for (let i=0; i < 5; i++) {
